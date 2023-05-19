@@ -1,8 +1,14 @@
+@font-face {
+    font-family: "Numbers Font";
+    src: url("./fonts/pixel.ttf") format("ttf");
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 html, body {
     width: 100%;
     height: 100vh;
@@ -11,4 +17,63 @@ html, body {
     align-items: center;
     background-color: #25232d;
     color: white;
+}
+
+.sayac {
+    width: 20rem;
+    height: 10rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: .25rem;
+    box-backdrop: blur(1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sayaclar {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.sayac span {
+    font-family: "Numbers Font", sans-serif;
+    font-size: 3rem;
+}
+
+.buttonlar {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.buttonlar button {
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    transition: all .5s;
+}
+.buttonlar button:not(:disabled) {
+    box-shadow: 2px 3px 4px black;
+}
+#start-button {
+    background-image: url("./images/start.svg");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* #pause-button {
+    background-image: url("./images/start.svg");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+} */
+#restart-button {
+    background-image: url("./images/restart.svg");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
