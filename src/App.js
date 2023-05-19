@@ -51,7 +51,7 @@ function Sayac() {
         <span>{ seconds < 10 ? "0" + seconds : seconds}</span>
       </div>
       <div className="buttonlar">
-        <button id="start-button" class="fi fi-br-play-circle"> ref={startButton} onClick={baslat} disabled={intervalId}></button>
+        <button id="start-button" class="fi fi-br-play-circle" ref={startButton} onClick={baslat} disabled={intervalId}></button>
         <button id="pause-button" class="fi fi-br-pause-circle" ref={pauseButton} onClick={duraklat} disabled={!intervalId}></button>
         <button id="restart-button" class="fi fi-rr-refresh" onClick={sifirla} disabled={!(hours || minutes || seconds)}></button>
       </div>
