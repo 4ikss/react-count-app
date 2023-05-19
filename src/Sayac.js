@@ -11,12 +11,14 @@ function Sayac() {
   useEffect(() => {
     if(seconds > 59) {
       setMinutes(m => m +1);
+      setSeconds(0);
     }
   }, [seconds]);
 
   useEffect(() => {
     if(minutes > 59) {
       setHours(h => h +1);
+      setMinutes(0);
     }
   }, [minutes]);
 
