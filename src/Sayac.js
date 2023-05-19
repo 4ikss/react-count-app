@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function Sayac() {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [hours, setHours] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
-
+  const pauseButton = useRef();
+  const startButton = useRef();
+  
   useEffect(() => {
     if (seconds > 59) {
       setMinutes(m => m + 1);
@@ -32,16 +34,26 @@ function Sayac() {
     setIntervalId(null);
   }
 
+  function sifirla() {
+    clearInterval(intervalId);
+    setHours(0);
+    setMinutes(0);
+    setSeconds(0);
+    pauseButton.current.setAttribute("disabled", "disabled");
+    startButton.current.removeAttribute("disabled");
+  }
+
   return (
     <div className="sayac">
       <div className="sayaclar">
-        <span>{hours < 10 ? "0" + hours : hours}</span>:
-        <span>{minutes < 10 ? "0" + minutes : minutes}</span>:
-        <span>{seconds < 10 ? "0" + seconds : seconds}</span>
+        <span>{ hours < 10 ? "0" + hours : hours}</span>:
+        <span>{ minutes < 10 ? "0" + minutes : minutes}</span>:
+        <span>{ seconds < 10 ? "0" + seconds : seconds}</span>
       </div>
       <div className="buttonlar">
-        <button onClick={baslat}>başlat</button>
-        <button onClick={duraklat}>duraklat</button>
+        <i id="pause-button" class="fi fi-br-pause-circle" ref={pauseButton} onClick={duraklat} disabled={!intervalId}></i>
+        <i id="restart-button" class="fi fi-br-refresh" onClick={sifirla} disabled={!(hours || minutes || seconds)}></i>
+        <i id="start-button" class="fi fi-br-play-circle" ref={startButton} onClick={baslat} disabled={intervalId}></i>
       </div>
     </div>
   );
