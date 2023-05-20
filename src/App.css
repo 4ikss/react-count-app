@@ -1,7 +1,8 @@
 @import "~@flaticon/flaticon-uicons/css/all/all";
+
 @font-face {
-    font-family: "Numbers Font";
-    src: url("./fonts/pixel.ttf") format("ttf");
+    font-family: "Numbers";
+    src: url("./fonts/dijital.woff") format("woff");
 }
 
 * {
@@ -34,12 +35,16 @@ html, body {
     width: 100%;
     height: 5rem;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    font-size: 4rem;
+    gap: .1rem;
+    justify-content: center;
 }
 .sayac span {
-    font-family: "Numbers Font", sans-serif;
-    font-size: 3rem;
+    font-family: "Numbers", sans-serif;
+    height: 5rem;
+    font-size: 5rem;
+    width: 5rem;
 }
 
 .buttonlar {
